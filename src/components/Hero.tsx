@@ -303,7 +303,7 @@ const Hero = () => {
             <div className="flex items-center gap-4">
               {[
                 { icon: Github, href: "https://github.com/Arivuselvam95", delay: 0 },
-                { icon: Linkedin, href: "https://www.linkedin.com/in/arivuselvam-s", delay: 0.1 },
+                { icon: Linkedin, href: "https://www.linkedin.com/in/arivuselvam-s-478765280", delay: 0.1 },
                 { icon: Mail, href: "mailto:arivuselvam439@gmail.com", delay: 0.2 }
               ].map(({ icon: Icon, href, delay }, index) => (
                 <motion.a

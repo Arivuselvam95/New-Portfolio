@@ -157,7 +157,7 @@ const Skills = () => {
                 ease: "linear"
               }}
             >
-              Skills
+             <span className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent animate-shimmer">Skills</span> 
             </motion.span>
           </motion.h2>
           
@@ -294,45 +294,77 @@ const Skills = () => {
             ].map((skill, index) => (
               <motion.div
                 key={skill.name}
-                initial={{ opacity: 0, x: -50 }}
-                animate={isInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ delay: 1.4 + index * 0.1 }}
-                data-aos="fade-right"
-                data-aos-delay={1400 + index * 100}
+                initial={{ opacity: 0, x: -20 }}
+                animate={isInView ? { 
+                  opacity: 1, 
+                  x: 0,
+                  transition: {
+                    duration: 0.6,
+                    ease: [0.22, 1, 0.36, 1],
+                    delay: 0.1 * index + 0.2
+                  }
+                } : {}}
               >
                 <div className="flex justify-between items-center mb-3">
-                  <span className="text-gray-700 dark:text-gray-300 font-semibold">{skill.name}</span>
+                  <motion.span 
+                    className="text-gray-700 dark:text-gray-300 font-semibold"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={isInView ? { 
+                      opacity: 1, 
+                      y: 0,
+                      transition: {
+                        duration: 0.5,
+                        ease: [0.22, 1, 0.36, 1],
+                        delay: 0.1 * index + 0.2
+                      }
+                    } : {}}
+                  >
+                    {skill.name}
+                  </motion.span>
                   <motion.span
                     className="text-gray-900 dark:text-white font-bold text-lg"
-                    initial={{ opacity: 0 }}
-                    animate={isInView ? { opacity: 1 } : {}}
-                    transition={{ delay: 1.6 + index * 0.1 }}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={isInView ? { 
+                      opacity: 1, 
+                      scale: 1,
+                      transition: {
+                        duration: 0.4,
+                        ease: [0.22, 1, 0.36, 1],
+                        delay: 0.1 * index + 0.3
+                      }
+                    } : {}}
                   >
                     {skill.level}%
                   </motion.span>
                 </div>
-                <div className="relative w-full bg-gray-200 dark:bg-gray-700 rounded-full h-4 overflow-hidden">
+                <div className="relative w-full bg-gray-200/50 dark:bg-gray-700/50 rounded-full h-4 overflow-hidden">
                   <motion.div
                     className={`h-full bg-gradient-to-r ${skill.color} rounded-full relative overflow-hidden`}
                     initial={{ width: 0 }}
-                    animate={isInView ? { width: `${skill.level}%` } : {}}
-                    transition={{ 
-                      duration: 1.5, 
-                      delay: 1.8 + index * 0.1,
-                      ease: "easeOut"
-                    }}
+                    animate={isInView ? { 
+                      width: `${skill.level}%`,
+                      transition: {
+                        duration: 1.2,
+                        delay: 0.1 * index + 0.4,
+                        ease: [0.22, 1, 0.36, 1]
+                      }
+                    } : {}}
                   >
                     <motion.div
-                      className="absolute inset-0 bg-white/30"
-                      animate={{
+                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent"
+                      initial={{ x: '-100%', opacity: 0 }}
+                      animate={isInView ? {
                         x: ['-100%', '100%'],
-                      }}
-                      transition={{
-                        duration: 2,
-                        repeat: Infinity,
-                        ease: "linear",
-                        delay: 2 + index * 0.2
-                      }}
+                        opacity: [0, 0.6, 0],
+                        transition: {
+                          duration: 2.5,
+                          repeat: Infinity,
+                          repeatType: 'loop',
+                          ease: [0.4, 0, 0.2, 1],
+                          delay: 0.1 * index + 0.8,
+                          times: [0, 0.4, 1]
+                        }
+                      } : {}}
                     />
                   </motion.div>
                 </div>

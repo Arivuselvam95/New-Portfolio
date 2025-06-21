@@ -16,13 +16,25 @@ export const useTheme = () => {
 };
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [isDark, setIsDark] = useState(() => {
-    if (typeof window !== 'undefined') {
-      return localStorage.getItem('theme') === 'dark' || 
-             (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  const [isDark, setIsDark] = useState<boolean>(false); // Default to light theme
+
+  useEffect(() => {
+    // Only check localStorage after component mounts to avoid hydration mismatch
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    // Only set dark mode if explicitly set in localStorage
+    const initialTheme = savedTheme === 'dark' || (!savedTheme && prefersDark);
+    setIsDark(initialTheme);
+    
+    // Apply the theme class
+    const root = window.document.documentElement;
+    if (initialTheme) {
+      root.classList.add('dark');
+    } else {
+      root.classList.remove('dark');
     }
-    return false;
-  });
+  }, []);
 
   useEffect(() => {
     const root = window.document.documentElement;
