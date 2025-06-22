@@ -37,7 +37,7 @@ const Achievements = () => {
       detail: 'Strengthened algorithmic skills through consistent problem-solving',
       color: 'from-orange-400 via-red-400 to-pink-500',
       bgColor: 'from-orange-50 to-pink-50 dark:from-orange-900/20 dark:to-pink-900/20',
-      number: '600+',
+      number: '700+',
       badge: '🏆'
     },
     {
@@ -220,11 +220,10 @@ const Achievements = () => {
         </div>
 
         {/* Enhanced Statistics */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
           {[
             { label: 'Problems Solved', value: '700+', icon: <Code className="w-6 h-6" />, color: 'from-orange-400 to-red-500' },
             { label: 'Days of Coding', value: '300+', icon: <Target className="w-6 h-6" />, color: 'from-green-400 to-emerald-500' },
-            { label: 'Certificates', value: '4', icon: <Award className="w-6 h-6" />, color: 'from-blue-400 to-cyan-500' },
             { label: 'CGPA', value: '8.86', icon: <Star className="w-6 h-6" />, color: 'from-purple-400 to-pink-500' }
           ].map((stat, index) => (
             <div

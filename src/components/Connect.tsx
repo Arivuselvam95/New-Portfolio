@@ -30,7 +30,7 @@ const Connect = () => {
   ];
 
   const quickStats = [
-    { label: 'LeetCode Problems', value: '600+' },
+    { label: 'LeetCode Problems', value: '700+' },
     { label: 'GitHub Repositories', value: '15+' },
     { label: 'Years of Learning', value: '4+' },
     { label: 'Technologies Mastered', value: '10+' }

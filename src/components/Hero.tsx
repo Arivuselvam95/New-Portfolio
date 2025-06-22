@@ -152,9 +152,9 @@ const Hero = () => {
           >
             <animated.div style={floatingAnimation}>
               <motion.div 
-                className="w-32 h-32 mx-auto bg-gradient-to-br from-gray-800 via-black to-gray-900 dark:from-white dark:via-gray-100 dark:to-gray-200 rounded-full flex items-center justify-center text-white dark:text-black text-4xl font-bold shadow-2xl relative overflow-hidden"
+                className="w-52 h-52 mx-auto bg-gradient-to-br from-gray-800 via-black to-gray-900 dark:from-white dark:via-gray-100 dark:to-gray-200 rounded-full flex items-center justify-center text-white dark:text-black text-4xl font-bold shadow-2xl relative overflow-hidden"
                 whileHover={{
-                  boxShadow: "0 0 50px rgba(0,0,0,0.3)",
+                  boxShadow: "0 0 50px rgba(0,0,0,0.5)",
                 }}
               >
                 <motion.div
@@ -168,7 +168,11 @@ const Hero = () => {
                     repeatDelay: 3,
                   }}
                 />
-                AS
+                <img 
+                  src="/photo.jpg" 
+                  alt="Arivuselvam S" 
+                  className="w-full h-full object-cover rounded-full border-4 border-white dark:border-gray-800 shadow-lg"
+                />
               </motion.div>
             </animated.div>
             
@@ -287,7 +291,7 @@ const Hero = () => {
                 scale: 1.05,
                 boxShadow: "0 10px 30px rgba(0,0,0,0.3)"
               }}
-              onClick={() => window.open(`${process.env.PUBLIC_URL}/Arivuselvam_S.pdf`, "_blank")}
+              onClick={() => window.open("/Arivuselvam_S.pdf", "_blank")}
               whileTap={{ scale: 0.95 }}
             >
               <motion.div
