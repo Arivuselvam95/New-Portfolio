@@ -1,5 +1,5 @@
 import React from 'react';
-import { Github, Linkedin, Mail, ExternalLink, Heart, Coffee } from 'lucide-react';
+import { Github, Linkedin, Mail, ExternalLink, Heart, Coffee, Code } from 'lucide-react';
 
 const Connect = () => {
   const socialLinks = [
@@ -26,6 +26,14 @@ const Connect = () => {
       description: 'Drop me a line for collaborations or opportunities',
       color: 'from-red-500 to-red-700',
       hoverColor: 'hover:from-red-600 hover:to-red-800'
+    },
+    {
+      name: 'Leetcode',
+      icon: <Code className="w-6 h-6" />,
+      url: 'https://leetcode.com/u/arivuselvam95',
+      description: 'Check out my LeetCode profile and see my coding journey',
+      color: 'from-green-500 to-green-700',
+      hoverColor: 'hover:from-green-600 hover:to-green-800'
     }
   ];
 
@@ -49,7 +57,7 @@ const Connect = () => {
         </div>
 
         {/* Social Links */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-16">
           {socialLinks.map((link, index) => (
             <a
               key={link.name}
@@ -149,7 +157,7 @@ const Connect = () => {
             <span>by Arivuselvam S</span>
           </div>
           <p className="text-sm text-gray-500 dark:text-gray-500">
-            © 2024 Arivuselvam S. All rights reserved.
+            © {new Date().getFullYear()} Arivuselvam S. All rights reserved.
           </p>
         </div>
       </div>

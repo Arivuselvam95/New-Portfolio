@@ -157,6 +157,7 @@ const Skills = () => {
                 ease: "linear"
               }}
             >
+            
              <span className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent animate-shimmer">Skills</span> 
             </motion.span>
           </motion.h2>
