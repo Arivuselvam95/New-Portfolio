@@ -3,6 +3,7 @@ import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { ArrowDown, Download, Github, Linkedin, Mail, Sparkles, Code, Zap } from 'lucide-react';
 import { useSpring, animated } from 'react-spring';
+import { TypeAnimation } from 'react-type-animation';
 
 const Hero = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -212,7 +213,7 @@ const Hero = () => {
           {/* Animated Text */}
           <motion.div className="space-y-6" variants={itemVariants}>
             <motion.h1 
-              className="text-5xl md:text-7xl font-bold text-gray-900 dark:text-white"
+              className="text-5xl md:text-7xl font-bold text-gray-900 dark:text-white flex flex-col md:block"
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.5 }}
@@ -221,18 +222,12 @@ const Hero = () => {
                 initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.7 }}
+                className="inline-block"
               >
-                Hi,
+                Hi, I'm
               </motion.span>{' '}
               <motion.span
-                initial={{ opacity: 0, x: -50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.9 }}
-              >
-                I'm
-              </motion.span>{' '}
-              <motion.span
-                className="bg-gradient-to-r from-gray-800 via-black to-gray-900 dark:from-white dark:via-gray-200 dark:to-gray-300 bg-clip-text text-transparent"
+                className="bg-gradient-to-r from-gray-800 via-black to-gray-900 dark:from-white dark:via-gray-200 dark:to-gray-300 bg-clip-text text-transparent block md:inline-block mt-2 md:mt-0"
                 initial={{ opacity: 0, scale: 0.5 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1, delay: 1.1 }}
@@ -241,7 +236,19 @@ const Hero = () => {
                   textShadow: "0px 0px 8px rgba(0,0,0,0.3)"
                 }}
               >
-                Arivuselvam
+                <TypeAnimation
+                  sequence={[
+                    'Arivuselvam', // Types 'Arivuselvam'
+                    1000, // Waits 1s
+                    'Full Stack Dev', // Deletes 'Arivuselvam' and types 'Full Stack Dev'
+                    1000, // Waits 1s
+                    'Arivuselvam', // Types 'Arivuselvam' again
+                  ]}
+                  wrapper="span"
+                  cursor={true}
+                  repeat={Infinity}
+                  style={{ display: 'inline-block' }}
+                />
               </motion.span>
             </motion.h1>
             
